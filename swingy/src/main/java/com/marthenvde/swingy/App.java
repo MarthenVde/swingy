@@ -1,12 +1,21 @@
 package com.marthenvde.swingy;
 
-import com.marthenvde.swingy.GameEngine.GameEngine;
-
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
-        GameEngine.buildWorld();
+        if (args.length >= 1) {
+            if ((args[0].toLowerCase()).equals("console") || (args[0].toLowerCase()).equals("gui")) {
+                if ((args[0].toLowerCase()).equals("console")) {
+                    System.out.println("Loading console view");
+                } else {
+                    System.out.println("Loading gui view");
+                }
+            } else {
+                System.err.println("Invalid launch option");
+            }
+        } else {
+            System.err.println("Missing launch mode!");
+        }
     }
 }
