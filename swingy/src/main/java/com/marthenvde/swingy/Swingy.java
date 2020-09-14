@@ -1,6 +1,6 @@
 package com.marthenvde.swingy;
 
-public class App 
+public class Swingy 
 {
     public static void main( String[] args )
     {

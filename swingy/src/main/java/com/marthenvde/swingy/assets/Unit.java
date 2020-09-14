@@ -1,4 +1,4 @@
-package com.marthenvde.swingy.GameEngine.world.units;
+package com.marthenvde.swingy.assets;
 
 public class Unit {
     private String name;
