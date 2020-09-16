@@ -1,18 +1,36 @@
-package com.marthenvde.swingy.assets;
+package com.marthenvde.swingy.assets.characters;
 
-public class Character extends Asset {
+public class Character {
 
     private String name;
     private int attack;
     private int defense;
     private int hp;
+    private String charClass;
+    private int xp;
 
-    public Character(String name, int attack, int defense, int hp, int x, int y) {
-        super(x, y);
+    public Character(String name, int attack, int defense, int hp, String charClass) {
         this.name = name;
         this.attack = attack;
         this.defense = defense;
         this.hp = hp;
+        this.charClass = charClass;
+    }
+
+    public void setXp(int xp) {
+        this.xp = xp;
+    }
+
+    public int getXp() {
+        return this.xp;
+    }
+
+    public void setCharClass(String charClass) {
+        this.charClass = charClass;
+    }
+
+    public String getCharClass() {
+        return this.charClass;
     }
 
     public String getName() {
