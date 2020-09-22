@@ -1,4 +1,4 @@
-package com.marthenvde.swingy.assets.characters;
+package com.marthenvde.swingy.model.characters;
 
 public class HeroBuilder {
     private int BASE_HEALTH = 125;

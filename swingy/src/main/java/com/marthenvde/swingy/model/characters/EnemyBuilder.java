@@ -1,4 +1,4 @@
-package com.marthenvde.swingy.assets.characters;
+package com.marthenvde.swingy.model.characters;
 
 public class EnemyBuilder {
     private int BASE_ENEMY_HEALTH = 45;

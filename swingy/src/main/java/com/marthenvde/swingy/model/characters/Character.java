@@ -1,4 +1,4 @@
-package com.marthenvde.swingy.assets.characters;
+package com.marthenvde.swingy.model.characters;
 
 public class Character {
 
@@ -8,6 +8,8 @@ public class Character {
     private int hp;
     private String charClass;
     private int xp;
+    private int x;
+    private int y;
 
     public Character(String name, int attack, int defense, int hp, String charClass) {
         this.name = name;
@@ -15,6 +17,22 @@ public class Character {
         this.defense = defense;
         this.hp = hp;
         this.charClass = charClass;
+    }
+
+    public int getX() {
+        return this.x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     public void setXp(int xp) {

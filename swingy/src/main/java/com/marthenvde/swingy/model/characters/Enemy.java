@@ -1,4 +1,4 @@
-package com.marthenvde.swingy.assets.characters;
+package com.marthenvde.swingy.model.characters;
 
 public class Enemy extends Character {
     public Enemy(String name, int attack, int defense, int hp, String charClass) {

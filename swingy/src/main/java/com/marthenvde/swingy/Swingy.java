@@ -4,6 +4,7 @@ public class Swingy
 {
     public static void main( String[] args )
     {
+        System.out.println(9 / 2);
         if (args.length >= 1) {
             if ((args[0].toLowerCase()).equals("console") || (args[0].toLowerCase()).equals("gui")) {
                 if ((args[0].toLowerCase()).equals("console")) {

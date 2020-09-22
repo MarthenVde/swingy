@@ -1,4 +1,4 @@
-package com.marthenvde.swingy.assets.artifact;
+package com.marthenvde.swingy.model.artifact;
 
 public class Weapon extends Artifact {
     Weapon(int power, String name) {

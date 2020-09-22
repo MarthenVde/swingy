@@ -1,6 +1,6 @@
-package com.marthenvde.swingy.assets.characters;
+package com.marthenvde.swingy.model.characters;
 
-import com.marthenvde.swingy.assets.artifact.*;
+import com.marthenvde.swingy.model.artifact.*;
 
 public class Hero extends Character {
     private int level;

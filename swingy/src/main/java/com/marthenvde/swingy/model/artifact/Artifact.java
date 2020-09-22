@@ -1,4 +1,4 @@
-package com.marthenvde.swingy.assets.artifact;
+package com.marthenvde.swingy.model.artifact;
 
 public abstract class Artifact {
     private String name;
