@@ -4,7 +4,7 @@ import com.marthenvde.swingy.model.Map;
 import com.marthenvde.swingy.model.characters.Hero;
 import com.marthenvde.swingy.model.characters.Enemy;
 
-public class Console implements Renderer {
+public class ConsoleView implements Renderer {
     public void drawTile(boolean visited) {
         if (visited == false) {
             System.out.print("*");
@@ -42,7 +42,7 @@ public class Console implements Renderer {
         System.out.print("M");
     }
     
-    public void drawStartupSceen() {
+    public void drawSelectionSceen() {
         System.out.print(" ---- START ----");
         System.out.print("  Load previous character? (Y/N)");
     }
