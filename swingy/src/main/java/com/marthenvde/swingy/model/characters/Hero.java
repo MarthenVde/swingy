@@ -1,18 +1,25 @@
 package com.marthenvde.swingy.model.characters;
 
+import java.io.Serializable;
 import com.marthenvde.swingy.model.artifact.*;
 
-public class Hero extends Character {
+public class Hero extends Character implements Serializable {
     private int level;
     private Armor armor;
     private Weapon weapon;
     private Helmet helmet;
+    private static long id = 0;
     
     public Hero(String name, int attack, int defense, int hp, String charClass) {
         super(name, attack, defense, hp, charClass);
         this.armor = null;
         this.helmet = null;
         this.weapon = null;
+        this.id = nextId();
+    }
+
+    private static long nextId() {
+        return id++;
     }
 
     public void setLevel(int level) {

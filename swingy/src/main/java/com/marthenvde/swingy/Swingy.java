@@ -3,6 +3,8 @@ package com.marthenvde.swingy;
 import com.marthenvde.swingy.controller.GameEngine;
 import com.marthenvde.swingy.view.ConsoleView;
 import com.marthenvde.swingy.view.Renderer;
+import com.marthenvde.swingy.model.Storage;
+import com.marthenvde.swingy.model.characters.Hero;
 
 public class Swingy 
 {
@@ -11,7 +13,6 @@ public class Swingy
         Renderer renderEngine;
         GameEngine gameEngine;
 
-        System.out.println(9 / 2);
         if (args.length >= 1) {
             if ((args[0].toLowerCase()).equals("console") || (args[0].toLowerCase()).equals("gui")) {
                 if ((args[0].toLowerCase()).equals("console")) {
@@ -22,7 +23,14 @@ public class Swingy
                 }
 
                 gameEngine = new GameEngine(renderEngine);
-                
+
+
+                Hero player1 = new Hero("john", 0,0,0,"Warrior");
+                Hero player2 = new Hero("john2", 0,0,0,"Warrior");
+                Hero player3 = new Hero("john3", 0,0,0,"Warrior");
+                // Storage.addHero(player1);
+                // Storage.addHero(player2);
+                // Storage.addHero(player3);
                 // TODO: Get player
 
                 // 
