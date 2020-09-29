@@ -1,24 +1,14 @@
 package com.marthenvde.swingy.model;
 
 import java.io.*;
-import java.json.simple.*;
+import java.util.ArrayList;
 import com.marthenvde.swingy.model.characters.Hero;
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
 
 public class Storage {
-    private static FileWriter writer;
+    // private static File file;
+    private static final String FILENAME = "Heroes.txt";
 
-    public static void newStorage(String filename) {
-        try {
-            writer = new FileWriter(filename);
-        } catch (Exception e) {
-            System.err.println("Error! couldn't create file");
-            System.exit(1);
-        }
-    }
-
-
-
-    public static void addHero(Hero newHero) {
-        
-    }
+    
 }
