@@ -1,9 +1,7 @@
 package com.marthenvde.swingy.model.characters;
-
-import java.io.Serializable;
 import com.marthenvde.swingy.model.artifact.*;
 
-public class Hero extends Character implements Serializable {
+public class Hero extends Character {
     private int level;
     private Armor armor;
     private Weapon weapon;
@@ -15,7 +13,7 @@ public class Hero extends Character implements Serializable {
         this.armor = null;
         this.helmet = null;
         this.weapon = null;
-        this.id = nextId();
+        // this.id = nextId();
     }
 
     private static long nextId() {

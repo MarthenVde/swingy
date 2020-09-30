@@ -28,9 +28,12 @@ public class Swingy
                 Hero player1 = new Hero("john", 0,0,0,"Warrior");
                 Hero player2 = new Hero("john2", 0,0,0,"Warrior");
                 Hero player3 = new Hero("john3", 0,0,0,"Warrior");
+        
                 // Storage.addHero(player1);
                 // Storage.addHero(player2);
                 // Storage.addHero(player3);
+
+                Storage.extractHeroes();
                 // TODO: Get player
 
                 // 

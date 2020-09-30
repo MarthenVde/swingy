@@ -24,7 +24,6 @@ public class GameEngine {
 
     private Hero loadPlayer() {
         this.renderer.drawSelectionSceen();
-        
         return null;
     }
 
