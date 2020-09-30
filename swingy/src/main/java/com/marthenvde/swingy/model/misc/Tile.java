@@ -4,6 +4,9 @@ public class Tile {
     private int x;
     private int y;
 
+    Tile() {
+    }
+
     public void setX(int x) {
         this.x = x;
     }

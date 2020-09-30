@@ -3,6 +3,7 @@ package com.marthenvde.swingy.model;
 import com.marthenvde.swingy.model.characters.*;
 import com.marthenvde.swingy.model.misc.Tile;
 import java.util.*;
+import com.marthenvde.swingy.model.characters.Hero;
 
 public class Map {
     private List<Enemy> enemies = new ArrayList<Enemy>();
@@ -10,7 +11,7 @@ public class Map {
     private int size;
     private Hero player;
 
-    Map(int size, Hero player) {
+    public Map(int size, Hero player) {
         // Validate size
         grid = new Object[size][size];
         this.player = player;
@@ -23,7 +24,7 @@ public class Map {
             }
         }
 
-        int center = (size / 2) + 1;
+        int center = (size / 2);
         grid[center][center] = this.player;
         this.player.setX(center);
         this.player.setY(center);
@@ -41,8 +42,8 @@ public class Map {
 
                 if (grid[randXPos][randYPos] == null) {
                     // Generate enemy
-                    System.out.println(randXPos);
-                    System.out.println(randYPos);
+                    // System.out.println(randXPos);
+                    // System.out.println(randYPos);
                     grid[randXPos][randYPos] = new CharacterGenerator().generateRandomEnemy();
                     enemies.add((Enemy)grid[randXPos][randYPos]);
                     break;

@@ -72,8 +72,9 @@ public class Storage {
         ArrayList<Hero> heroes = new ArrayList<>();
 
         if (!saveFile.exists()) {
-            System.err.println("Error! file not found");
-            System.exit(1);
+            return null;
+            // System.err.println("Error! file not found");
+            // System.exit(1);
         }
         try {
             Reader reader = new InputStreamReader(new FileInputStream(saveFile), "UTF-8");
