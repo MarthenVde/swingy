@@ -1,5 +1,6 @@
 package com.marthenvde.swingy;
 
+import java.util.ArrayList;
 import com.marthenvde.swingy.controller.GameEngine;
 import com.marthenvde.swingy.view.ConsoleView;
 import com.marthenvde.swingy.view.Renderer;
@@ -33,7 +34,14 @@ public class Swingy
                 // Storage.addHero(player2);
                 // Storage.addHero(player3);
 
-                Storage.extractHeroes();
+                ArrayList<Hero> myHeroes = Storage.extractHeroes();
+                
+                System.out.println("UPDATING HEROES\n");
+                player1.setName("Frederik");
+                Storage.updateHero(player1);
+
+                myHeroes = Storage.extractHeroes();
+
                 // TODO: Get player
 
                 // 

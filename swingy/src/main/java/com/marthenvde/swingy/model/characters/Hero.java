@@ -6,18 +6,27 @@ public class Hero extends Character {
     private Armor armor;
     private Weapon weapon;
     private Helmet helmet;
-    private static long id = 0;
+    private int id;
+    private static int idCounter = 0;
     
     public Hero(String name, int attack, int defense, int hp, String charClass) {
         super(name, attack, defense, hp, charClass);
         this.armor = null;
         this.helmet = null;
         this.weapon = null;
-        // this.id = nextId();
+        this.id = nextId();
     }
 
-    private static long nextId() {
-        return id++;
+    private static int nextId() {
+        return idCounter++;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return this.id;
     }
 
     public void setLevel(int level) {
