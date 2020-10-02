@@ -16,6 +16,18 @@ public class ConsoleView implements Renderer {
         }
     }
 
+    public void drawEscape(boolean escaped) {
+        if (escaped == true) {
+            System.out.println("You succesfully escaped to you previous position!");
+        } else {
+            System.out.println("You failed to escape.");
+        }
+    }
+
+    public void drawVictory(String name, String type) {
+        System.out.println("You won against " + name + " the " + type);
+    }
+
     public void drawContinueScreen() {
         System.out.print("Want to continue player? (Y/N): ");
     }
@@ -50,6 +62,12 @@ public class ConsoleView implements Renderer {
 
     public void drawMonster() {
         System.out.print("[M]");
+    }
+
+    public void drawEnemyEncounterOption() {
+        System.out.println("You encountered a monster!");
+        System.out.println("1. run");
+        System.out.println("2. Fight");
     }
     
     public void drawSelectionSceen(ArrayList<Hero> heroes) {

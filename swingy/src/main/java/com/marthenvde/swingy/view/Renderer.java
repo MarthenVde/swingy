@@ -14,4 +14,7 @@ public interface Renderer {
     public void drawEndScreen(boolean won);
     public void drawCharacterCreationScreen();
     public void drawContinueScreen();
+    public void drawEnemyEncounterOption();
+    public void drawEscape(boolean escaped);
+    public void drawVictory(String name, String type);
 }

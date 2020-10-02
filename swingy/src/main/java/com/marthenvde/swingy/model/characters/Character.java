@@ -1,5 +1,7 @@
 package com.marthenvde.swingy.model.characters;
 
+import java.util.Random;
+
 public class Character {
 
     private String name;
@@ -17,6 +19,27 @@ public class Character {
         this.defense = defense;
         this.hp = hp;
         this.charClass = charClass;
+    }
+
+    public void attack(Character opponent) {
+        if (this.attack > opponent.getDefense()) {
+            opponent.setHp(opponent.getHp() - (opponent.getDefense() - this.attack));
+        } else {
+            int luck = new Random().nextInt(5);
+
+            if (luck >= 4) {
+                opponent.setHp(opponent.getHp() - this.attack);
+            }
+        }
+    }
+
+    public boolean simulateFight(Character opponent) {
+        while (this.hp > 0 && opponent.getHp() > 0) {
+            this.attack(opponent);
+            opponent.attack(this);
+        }
+
+        return (this.hp > 0);
     }
 
     public int getX() {

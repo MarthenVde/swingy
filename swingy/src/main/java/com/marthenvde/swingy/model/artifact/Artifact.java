@@ -1,13 +1,10 @@
 package com.marthenvde.swingy.model.artifact;
 
 public abstract class Artifact {
-    private String name;
     private int power;
 
-
-    Artifact(int power, String name) {
+    Artifact(int power) {
         this.power = power;
-        this.name = name;
     }
 
     public int getPower() {
@@ -16,13 +13,5 @@ public abstract class Artifact {
 
     public void setPower(int power) {
         this.power = power;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

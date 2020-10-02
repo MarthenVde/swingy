@@ -3,7 +3,7 @@ package com.marthenvde.swingy.model.characters;
 public class EnemyBuilder {
     private int BASE_ENEMY_HEALTH = 45;
     private int BASE_ENEMY_ATTACK = 15;
-    private int BASE_ENEMY_DEFENSE = 15;
+    private int BASE_ENEMY_DEFENSE = 10;
     private int BASE_ENEMY_XP = 100;
 
     public Enemy createOgre(String name) {

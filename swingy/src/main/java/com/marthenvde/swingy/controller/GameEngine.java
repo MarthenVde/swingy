@@ -9,6 +9,7 @@ import com.marthenvde.swingy.model.Map;
 import com.marthenvde.swingy.model.Storage;
 import com.marthenvde.swingy.controller.InputContoller;
 import com.marthenvde.swingy.model.characters.HeroBuilder;
+import java.util.Random;
 
 public class GameEngine {
     private final int MAX_LEVEL = 7;
@@ -19,6 +20,7 @@ public class GameEngine {
     private ArrayList<Hero> heroes;
     private Object[][] grid;
     private int mapSize;
+    private final Random random = new Random();
 
     public GameEngine(Renderer renderEngine, InputContoller inputContoller) {
         this.renderer = renderEngine;
@@ -37,7 +39,6 @@ public class GameEngine {
                 selectedNum = this.controller.getNumberChoice(heroes.size());
 
                 this.player = heroes.get(selectedNum - 1);
-                // select previous hero
             } else {
                 this.renderer.drawCharacterCreationScreen();
                 selectedNum = this.controller.getNumberChoice(5);
@@ -91,6 +92,19 @@ public class GameEngine {
             }
         }
     }
+
+    public void startFight(Enemy enemy) {
+        int xp = enemy.getXp();
+        boolean wonFight = this.player.simulateFight(enemy);
+
+        if (wonFight) {
+            this.renderer.drawVictory(enemy.getName(), enemy.getCharClass());
+            // get artifact
+            // artifact selection
+        } else {
+
+        }
+    }
     
     public void Start() {
         this.map = this.generateMap();
@@ -127,18 +141,31 @@ public class GameEngine {
                     this.Start();
                 }
                 break;
-                // return;
             }
-
+            
             if (this.map.getGrid()[x][y] instanceof Enemy) {
-                System.out.println("foind monster");
+                this.renderer.drawEnemyEncounterOption();
+                int action = this.controller.getNumberChoice(2);
+            
+                if (action == 1) {
+                    boolean ranAway = this.random.nextBoolean();
+
+                    if (ranAway == false) {
+                        this.renderer.drawEscape(false);
+                        this.startFight();
+                    } else {
+                        this.renderer.drawEscape(true);
+                        int x = this.player.getX();
+                        int y = this.player.getY();
+                    }
+                } else {
+                    this.startFight();
+                }
             }
 
             this.map.updatePlayerPosition(x, y);
         }
     }
-
-
     // event hanler
     // movement controller
 }  
