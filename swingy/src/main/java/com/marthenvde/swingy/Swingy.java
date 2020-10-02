@@ -42,6 +42,7 @@ public class Swingy
                 Map map = new Map(3, player1);
                 
                 gameEngine = new GameEngine(renderEngine, controller);
+                gameEngine.Start();
                 // renderEngine.drawMap(map);
                 // renderEngine.drawStartup();
                 // renderEngine.drawSelectionSceen();

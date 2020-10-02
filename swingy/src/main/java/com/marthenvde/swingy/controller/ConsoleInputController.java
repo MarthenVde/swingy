@@ -13,13 +13,26 @@ public class ConsoleInputController implements InputContoller {
 
     public String getYesNo() {
         Console console = System.console();
-        String response = console.readLine();
+        String line = console.readLine();
         
-        if ((response.toLowerCase().equals("n")) || (response.toLowerCase().equals("y"))) {
-            return response.toLowerCase();
+        if ((line.toLowerCase().equals("n")) || (line.toLowerCase().equals("y"))) {
+            return line.toLowerCase();
         } else {
             System.out.println("Incorrect use - (Y/N)");
             return getYesNo();
+        }
+    }
+
+    public String getMovementInput() {
+        System.out.println("Select type direction to move (UP, DOWN, LEFT, RIGHT):");
+        String input = System.console().readLine().toLowerCase();
+
+        if (input.equals("up") || input.equals("down") 
+            || input.equals("left") || input.equals("right")) {
+            return input;
+        } else {
+            System.out.println("Invalid direction!");
+            return getMovementInput();
         }
     }
     

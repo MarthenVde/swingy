@@ -13,4 +13,5 @@ public interface Renderer {
     public void drawStartup();
     public void drawEndScreen(boolean won);
     public void drawCharacterCreationScreen();
+    public void drawContinueScreen();
 }

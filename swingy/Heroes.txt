@@ -4,3 +4,5 @@
 {"level":0,"id":1,"name":"john2","attack":0,"defense":0,"hp":0,"charClass":"Warrior","xp":0,"x":0,"y":0}
 {"level":0,"id":3,"name":"MACCCC","attack":25,"defense":25,"hp":130,"charClass":"Knight","xp":0,"x":0,"y":0}
 {"level":0,"id":3,"name":"John","attack":30,"defense":25,"hp":115,"charClass":"Barbarian","xp":0,"x":0,"y":0}
+{"level":0,"id":3,"name":"p1","attack":25,"defense":25,"hp":130,"charClass":"Knight","xp":0,"x":0,"y":0}
+{"level":0,"id":3,"name":"ggg","attack":30,"defense":25,"hp":115,"charClass":"Barbarian","xp":0,"x":0,"y":0}

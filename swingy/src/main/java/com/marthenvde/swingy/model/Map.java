@@ -11,21 +11,32 @@ public class Map {
     private int size;
     private Hero player;
 
+    public void updatePlayerPosition(int x, int y) {
+        int oldX = this.player.getX();
+        int oldY = this.player.getY();
+
+        this.player.setX(x);
+        this.player.setY(y);
+        
+        this.grid[oldX][oldY] = null;
+        this.grid[x][y] = this.player;
+    }
+
     public Map(int size, Hero player) {
-        // Validate size
-        grid = new Object[size][size];
+        // Validate sizemak
+        this.grid = new Object[size][size];
         this.player = player;
         this.size = size;
 
         // Set map to null
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                grid[i][j] = null;
+                this.grid[i][j] = null;
             }
         }
 
         int center = (size / 2);
-        grid[center][center] = this.player;
+        this.grid[center][center] = this.player;
         this.player.setX(center);
         this.player.setY(center);
 
@@ -41,9 +52,6 @@ public class Map {
                 int randYPos = random.nextInt(((size - 1) - 1));
 
                 if (grid[randXPos][randYPos] == null) {
-                    // Generate enemy
-                    // System.out.println(randXPos);
-                    // System.out.println(randYPos);
                     grid[randXPos][randYPos] = new CharacterGenerator().generateRandomEnemy();
                     enemies.add((Enemy)grid[randXPos][randYPos]);
                     break;

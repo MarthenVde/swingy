@@ -16,6 +16,10 @@ public class ConsoleView implements Renderer {
         }
     }
 
+    public void drawContinueScreen() {
+        System.out.print("Want to continue player? (Y/N): ");
+    }
+
     public void drawMap(Map map) {
         Object[][] grid = map.getGrid();
         int rows = grid.length;

@@ -1,6 +1,8 @@
 package com.marthenvde.swingy.controller;
 
 import java.util.ArrayList;
+
+import com.marthenvde.swingy.model.characters.Enemy;
 import com.marthenvde.swingy.model.characters.Hero;
 import com.marthenvde.swingy.view.Renderer;
 import com.marthenvde.swingy.model.Map;
@@ -15,6 +17,8 @@ public class GameEngine {
     private Hero player;
     private InputContoller controller;
     private ArrayList<Hero> heroes;
+    private Object[][] grid;
+    private int mapSize;
 
     public GameEngine(Renderer renderEngine, InputContoller inputContoller) {
         this.renderer = renderEngine;
@@ -66,9 +70,75 @@ public class GameEngine {
         
     }
 
-    public void Gameloop() {
+    private Map generateMap() {
+        int level = this.player.getLevel();
+        this.mapSize = (level - 1) * 5 + 10 - (level % 2);
+        System.out.println("Generating map size: " + mapSize);
 
+        return new Map(this.mapSize, this.player);
     }
+
+    public void roundEnd() {
+        Storage.updateHero(this.player);
+
+        if (this.player.getLevel() == MAX_LEVEL) {
+            String choice = this.controller.getYesNo();
+            
+            if (choice.equals("y")) {
+                this.Start();
+            } else {
+                this.renderer.drawEndScreen(true);
+            }
+        }
+    }
+    
+    public void Start() {
+        this.map = this.generateMap();
+        
+        while (true) {
+            this.renderer.drawMap(this.map);
+            String direction = this.controller.getMovementInput();
+            int x = this.player.getX();
+            int y = this.player.getY();
+            
+            switch (direction) {
+                case "up":
+                x--;
+                break;
+                case "left":
+                y--;
+                break;
+                case "down":
+                x++;
+                break;
+                case "right":
+                y++;
+            }
+            
+            if (x <= 0 || x >= (this.mapSize - 1) || y <= 0 || y >= (this.mapSize - 1)) {
+                this.map.updatePlayerPosition(x, y);
+                this.renderer.drawMap(this.map);
+                this.renderer.drawEndScreen(true);
+                this.renderer.drawContinueScreen();
+                
+                String choice =  this.controller.getYesNo();
+
+                if (choice.equals("y")) {
+                    this.Start();
+                }
+                break;
+                // return;
+            }
+
+            if (this.map.getGrid()[x][y] instanceof Enemy) {
+                System.out.println("foind monster");
+            }
+
+            this.map.updatePlayerPosition(x, y);
+        }
+    }
+
+
     // event hanler
     // movement controller
 }  
