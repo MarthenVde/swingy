@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import com.marthenvde.swingy.model.characters.Enemy;
 import com.marthenvde.swingy.model.characters.Hero;
 import com.marthenvde.swingy.view.Renderer;
+import com.marthenvde.swingy.Swingy;
 import com.marthenvde.swingy.model.Map;
 import com.marthenvde.swingy.model.Storage;
 import com.marthenvde.swingy.model.artifact.Armor;
@@ -12,6 +13,8 @@ import com.marthenvde.swingy.model.artifact.Helmet;
 import com.marthenvde.swingy.model.artifact.Weapon;
 import com.marthenvde.swingy.model.characters.HeroBuilder;
 import java.util.Random;
+import javax.validation.*;
+import java.util.Set;
 
 public class GameEngine {
     private final int MAX_LEVEL = 5;
@@ -64,8 +67,18 @@ public class GameEngine {
                 this.player = new HeroBuilder().createKnight(name);
                 break;
         }
-        Storage.addHero(this.player);
-        this.baseHp = this.player.getHp();
+        Set<ConstraintViolation<Hero>> constraintViolations = Swingy.validator.validate(this.player);
+
+        if (constraintViolations.size() > 0) {
+            for (ConstraintViolation<Hero> violation: constraintViolations) {
+                this.renderer.drawMessage(violation.getMessage());
+            }
+            createNewHero();
+        } else {
+            Storage.addHero(this.player);
+            this.baseHp = this.player.getHp();
+        }
+
     }
 
     public GameEngine(Renderer renderEngine, Controller inputController) {
@@ -80,10 +93,23 @@ public class GameEngine {
             String choice = this.controller.getYesNo();
             
             if (choice.equals("y")) {
-                this.renderer.drawSelectionSceen(this.heroes);
-                int selectedNum = this.controller.getNumberChoice(heroes.size());
-                this.player = heroes.get(selectedNum - 1);
-                return;
+                while (true) {
+                    this.renderer.drawSelectionSceen(this.heroes);
+                    int selectedNum = this.controller.getNumberChoice(heroes.size());
+
+                    this.player = heroes.get(selectedNum - 1);
+
+                    Set<ConstraintViolation<Hero>> constraintViolations = Swingy.validator.validate(this.player);
+
+                    if (constraintViolations.size() > 0) {
+                        for (ConstraintViolation<Hero> violation: constraintViolations) {
+                            this.renderer.drawMessage(violation.getMessage());
+                        }
+                    } else {
+                        return;
+                    }
+                }
+
             }
         }
         this.createNewHero();
@@ -99,10 +125,7 @@ public class GameEngine {
         if (level > this.MAX_LEVEL) {
             this.player.setLevel(this.MAX_LEVEL);
         }
-
         this.mapSize = (level - 1) * 5 + 10 - (level % 2);
-        // System.out.println("Generating map size: " + mapSize);
-
         return new Map(this.mapSize, this.player);
     }
 
@@ -197,6 +220,7 @@ public class GameEngine {
                 this.map.updatePlayerPosition(x, y);
                 this.renderer.drawMap(this.map);
                 this.renderer.drawEndScreen(true);
+                this.addXp(200);
                 this.roundEnd();
             }
             

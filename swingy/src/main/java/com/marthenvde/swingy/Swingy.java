@@ -7,14 +7,18 @@ import com.marthenvde.swingy.controller.Controller;
 import com.marthenvde.swingy.view.ConsoleView;
 import com.marthenvde.swingy.view.GuiView;
 import com.marthenvde.swingy.view.Renderer;
+import javax.validation.*;
 
 public class Swingy 
 {
+    private static ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+    public static Validator validator = factory.getValidator();
     public static void main( String[] args )
     {
         Renderer renderEngine;
         GameEngine gameEngine;
         Controller controller;
+
 
         if (args.length >= 1) {
             if ((args[0].toLowerCase()).equals("console") || (args[0].toLowerCase()).equals("gui")) {

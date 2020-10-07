@@ -43,29 +43,26 @@ public class Character {
     public void attack(Character opponent) {
         int oldHp = opponent.getHp();
 
-        System.out.println("Attack is : " + this.attack + " opponent defense: " + opponent.getDefense());
+        // System.out.println("Attack is : " + this.attack + " opponent defense: " + opponent.getDefense());
 
         if (this.attack > opponent.getDefense()) {
             opponent.setHp(oldHp - (this.attack - opponent.getDefense()));
-            System.out.println(this.name + " Attacked1 "  + opponent.getName() + " with: " + (this.attack - opponent.getDefense()));
-            System.out.println(opponent.getHp());
+            // System.out.println(this.name + " Attacked1 "  + opponent.getName() + " with: " + (this.attack - opponent.getDefense()));
+            // System.out.println(opponent.getHp());
         } else {
-            int luck = new Random().nextInt(5);
-
-            System.out.println("Luack is " + luck);
-            
+            int luck = new Random().nextInt(5);            
             if (luck >= 4) {
-                System.out.println(this.name + " Attacked2"  + opponent.getName() + " with: " + (this.attack - 2));
+                // System.out.println(this.name + " Attacked2"  + opponent.getName() + " with: " + (this.attack - 2));
                 opponent.setHp((opponent.getHp() - (this.attack - 2)));
-                System.out.println(opponent.getHp());
+                // System.out.println(opponent.getHp());
             }
         }
     }
 
     public boolean simulateFight(Character opponent) {
-        System.out.println("starting fight");
-        System.out.println("Opponent health " + opponent.getHp());
-        System.out.println("player health " + this.getHp());
+        // System.out.println("starting fight");
+        // System.out.println("Opponent health " + opponent.getHp());
+        // System.out.println("player health " + this.getHp());
 
         while ((this.hp > 0) && (opponent.getHp() > 0)) {
             this.attack(opponent);

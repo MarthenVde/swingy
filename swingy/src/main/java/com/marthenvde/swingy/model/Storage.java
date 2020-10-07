@@ -85,7 +85,7 @@ public class Storage {
                 JsonElement jElement = jsp.next();
                 try {
                     hero = gson.fromJson(jElement, Hero.class);
-                    System.out.print("HERO: " + hero.getName() + "\n");
+                    // System.out.print("HERO: " + hero.getName() + "\n");
                     heroes.add(hero);
                 } catch (Exception e) {
                     System.err.println("Error! invalid save file");
