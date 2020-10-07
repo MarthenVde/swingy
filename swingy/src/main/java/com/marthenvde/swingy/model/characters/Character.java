@@ -22,19 +22,33 @@ public class Character {
     }
 
     public void attack(Character opponent) {
+        int oldHp = opponent.getHp();
+
+        System.out.println("Attack is : " + this.attack + " opponent defense: " + opponent.getDefense());
+
         if (this.attack > opponent.getDefense()) {
-            opponent.setHp(opponent.getHp() - (opponent.getDefense() - this.attack));
+            opponent.setHp(oldHp - (this.attack - opponent.getDefense()));
+            System.out.println(this.name + " Attacked1 "  + opponent.getName() + " with: " + (this.attack - opponent.getDefense()));
+            System.out.println(opponent.getHp());
         } else {
             int luck = new Random().nextInt(5);
 
+            System.out.println("Luack is " + luck);
+            
             if (luck >= 4) {
-                opponent.setHp(opponent.getHp() - this.attack);
+                System.out.println(this.name + " Attacked2"  + opponent.getName() + " with: " + (this.attack - 2));
+                opponent.setHp((opponent.getHp() - (this.attack - 2)));
+                System.out.println(opponent.getHp());
             }
         }
     }
 
     public boolean simulateFight(Character opponent) {
-        while (this.hp > 0 && opponent.getHp() > 0) {
+        System.out.println("starting fight");
+        System.out.println("Opponent health " + opponent.getHp());
+        System.out.println("player health " + this.getHp());
+
+        while ((this.hp > 0) && (opponent.getHp() > 0)) {
             this.attack(opponent);
             opponent.attack(this);
         }

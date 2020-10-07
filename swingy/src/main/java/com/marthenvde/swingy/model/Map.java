@@ -1,7 +1,6 @@
 package com.marthenvde.swingy.model;
 
 import com.marthenvde.swingy.model.characters.*;
-import com.marthenvde.swingy.model.misc.Tile;
 import java.util.*;
 import com.marthenvde.swingy.model.characters.Hero;
 

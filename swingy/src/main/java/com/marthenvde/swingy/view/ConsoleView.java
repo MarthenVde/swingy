@@ -1,13 +1,18 @@
 package com.marthenvde.swingy.view;
 
 import java.util.ArrayList;
-import java.util.List;
 import com.marthenvde.swingy.model.Map;
+import com.marthenvde.swingy.model.artifact.Armor;
+import com.marthenvde.swingy.model.artifact.Artifact;
+import com.marthenvde.swingy.model.artifact.Helmet;
 import com.marthenvde.swingy.model.characters.Hero;
-import com.marthenvde.swingy.model.misc.Tile;
 import com.marthenvde.swingy.model.characters.Enemy;
 
 public class ConsoleView implements Renderer {
+    public void drawMessage(String message) {
+        System.out.println(message);
+    }
+
     public void drawTile(boolean visited) {
         if (visited == false) {
             System.out.print("[ ]");
@@ -16,9 +21,22 @@ public class ConsoleView implements Renderer {
         }
     }
 
+    public void drawArtifactPickup(Artifact artifact) {
+        String type;
+
+        if (artifact instanceof Helmet)
+            type = "a helmet";
+        else if (artifact instanceof Armor)
+            type = "armor";
+        else
+            type = "a weapon";
+
+        System.out.println("You found " + type +  " with power " + artifact.getPower() + "\nequip artifact? (Y/N)");
+    }
+
     public void drawEscape(boolean escaped) {
         if (escaped == true) {
-            System.out.println("You succesfully escaped to you previous position!");
+            System.out.println("You succesfully escaped to your previous position!");
         } else {
             System.out.println("You failed to escape.");
         }
@@ -29,7 +47,7 @@ public class ConsoleView implements Renderer {
     }
 
     public void drawContinueScreen() {
-        System.out.print("Want to continue player? (Y/N): ");
+        System.out.print("Want to continue playing? (Y/N): ");
     }
 
     public void drawMap(Map map) {

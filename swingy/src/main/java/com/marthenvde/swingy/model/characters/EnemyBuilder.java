@@ -4,7 +4,7 @@ public class EnemyBuilder {
     private int BASE_ENEMY_HEALTH = 45;
     private int BASE_ENEMY_ATTACK = 15;
     private int BASE_ENEMY_DEFENSE = 10;
-    private int BASE_ENEMY_XP = 100;
+    private int BASE_ENEMY_XP = 200;
 
     public Enemy createOgre(String name) {
         Enemy ogre = new Enemy(name, BASE_ENEMY_ATTACK - 5, BASE_ENEMY_DEFENSE + 5, BASE_ENEMY_HEALTH + 10, "Ogre");
