@@ -76,7 +76,6 @@ public class GameEngine {
             return;
         } else {
             Storage.addHero(this.player);
-            this.baseHp = this.player.getHp();
         }
 
     }
