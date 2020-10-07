@@ -25,7 +25,6 @@ public class GameEngine {
     private ArrayList<Hero> heroes;
     private int mapSize;
     private final Random random = new Random();
-    private int baseHp;
 
     private String uniqueHeroName() {
         String input = this.controller.getInputName().strip();
@@ -74,6 +73,7 @@ public class GameEngine {
                 this.renderer.drawMessage(violation.getMessage());
             }
             createNewHero();
+            return;
         } else {
             Storage.addHero(this.player);
             this.baseHp = this.player.getHp();
@@ -116,7 +116,7 @@ public class GameEngine {
     }
 
     private void resetHp() {
-        this.player.setHp(this.baseHp);
+        this.player.setHp(this.player.getBaseHp());
     }
 
     private Map generateMap() {
@@ -130,8 +130,8 @@ public class GameEngine {
     }
 
     public void roundEnd() {
-        this.resetHp();
         Storage.updateHero(this.player);
+        this.resetHp();
         this.renderer.drawContinueScreen();
 
    
@@ -228,10 +228,10 @@ public class GameEngine {
                 this.renderer.drawEnemyEncounterOption();
                 Enemy enemy = (Enemy)this.map.getGrid()[x][y];
                 int action = this.controller.getNumberChoice(2);
-            
+                
                 if (action == 1) {
                     boolean ranAway = this.random.nextBoolean();
-
+                    
                     if (ranAway == false) {
                         this.renderer.drawEscape(false);
                         this.startFight(enemy);
@@ -244,6 +244,7 @@ public class GameEngine {
                     this.startFight(enemy);
                 }
             }
+            Storage.updateHero(this.player);
             this.map.updatePlayerPosition(x, y);
         }
     }

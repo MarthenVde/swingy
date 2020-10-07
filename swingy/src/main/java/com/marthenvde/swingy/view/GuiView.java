@@ -141,6 +141,8 @@ public class GuiView implements Renderer {
         }
         this.drawInfoPanel(map.getPlayer());
         this.grid.revalidate();
+        this.infoPanel.revalidate();
+        this.infoPanel.repaint();
         this.mapFrame.repaint();
     }
 

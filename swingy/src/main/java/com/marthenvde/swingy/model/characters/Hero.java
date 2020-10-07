@@ -6,24 +6,32 @@ public class Hero extends Character {
 
     @Min(value = 0, message = "lvl must not be less 0")
     private int level;
+    @Min(value = 0, message = "Base hp must not be less 0")
+    private int baseHp;
     private Armor armor;
     private Weapon weapon;
     private Helmet helmet;
     private int id;
     private static int idCounter = 0;
     
-    public Hero(String name, int attack, int defense, int hp, String charClass) {
+    public Hero(String name, int attack, int defense, int hp, String charClass, int baseHp) {
         super(name, attack, defense, hp, charClass);
         this.armor = null;
         this.helmet = null;
         this.weapon = null;
+        this.baseHp = baseHp;
         this.id = nextId();
     }
 
+    
     private static int nextId() {
         return idCounter++;
     }
 
+    public int getBaseHp() {
+        return this.baseHp;
+    }
+    
     public void setId(int id) {
         this.id = id;
     }

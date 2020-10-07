@@ -53,7 +53,7 @@ public class Character {
             int luck = new Random().nextInt(5);            
             if (luck >= 4) {
                 // System.out.println(this.name + " Attacked2"  + opponent.getName() + " with: " + (this.attack - 2));
-                opponent.setHp((opponent.getHp() - (this.attack - 2)));
+                opponent.setHp((opponent.getHp() - (this.attack)));
                 // System.out.println(opponent.getHp());
             }
         }

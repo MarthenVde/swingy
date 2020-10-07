@@ -8,7 +8,7 @@ public class Map {
     private List<Enemy> enemies = new ArrayList<Enemy>();
     private Object[][] grid;
 
-    
+
     private int size;
     private Hero player;
 
@@ -43,7 +43,7 @@ public class Map {
         // Calculate how many enemies there should be
         int outerTileCount = (size * 4) - 4;
         int innerTileCount = ((size * size) - outerTileCount) - 1;
-        int enemyCount = (int)((float)innerTileCount * 0.45);
+        int enemyCount = (int)((float)innerTileCount - (innerTileCount / 2));
         Random random = new Random();
 
         for (int i = 0; i < enemyCount; i++) {
