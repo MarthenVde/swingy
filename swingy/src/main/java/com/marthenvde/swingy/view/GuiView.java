@@ -62,9 +62,9 @@ public class GuiView implements Renderer {
         this.inputPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 75));
         this.inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.X_AXIS));
 
+        GuiView.submitBtn.setText("Enter");
         this.inputPanel.add(inputField);
         this.inputPanel.add(GuiView.submitBtn);
-        GuiView.submitBtn.setText("Enter");
 
         GuiView.submitBtn.setAction(new AbstractAction(){
             private static final long serialVersionUID = 1L;

@@ -13,7 +13,11 @@ public class GuiInputController extends InputContoller {
             }
             String inputText = GuiView.inputField.getText();
             GuiView.inputField.setText("");
-            return inputText;
+            if (inputText.isBlank()) {
+                return getUserInput();
+            } else {
+                return inputText;
+            }
         }
     }
 

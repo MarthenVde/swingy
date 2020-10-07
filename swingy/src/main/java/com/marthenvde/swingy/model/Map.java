@@ -7,6 +7,8 @@ import com.marthenvde.swingy.model.characters.Hero;
 public class Map {
     private List<Enemy> enemies = new ArrayList<Enemy>();
     private Object[][] grid;
+
+    
     private int size;
     private Hero player;
 
@@ -22,7 +24,6 @@ public class Map {
     }
 
     public Map(int size, Hero player) {
-        // Validate sizemak
         this.grid = new Object[size][size];
         this.player = player;
         this.size = size;

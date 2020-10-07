@@ -92,7 +92,6 @@ public class Storage {
                     System.exit(1);
                 }
             }
-
             reader.close();
             return heroes;
         } catch (Exception e) {

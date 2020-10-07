@@ -1,7 +1,6 @@
 package com.marthenvde.swingy.controller;
 
 import java.util.ArrayList;
-
 import com.marthenvde.swingy.model.characters.Enemy;
 import com.marthenvde.swingy.model.characters.Hero;
 import com.marthenvde.swingy.view.Renderer;
@@ -26,7 +25,7 @@ public class GameEngine {
     private int baseHp;
 
     private String uniqueHeroName() {
-        String input = this.controller.getInputName();
+        String input = this.controller.getInputName().strip();
 
         if (this.heroes != null) {
             for (int i = 0; i < this.heroes.size(); i++) {
@@ -96,7 +95,7 @@ public class GameEngine {
 
     private Map generateMap() {
         int level = this.player.getLevel();
-        
+
         if (level > this.MAX_LEVEL) {
             this.player.setLevel(this.MAX_LEVEL);
         }

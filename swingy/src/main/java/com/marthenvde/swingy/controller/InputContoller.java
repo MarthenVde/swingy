@@ -13,7 +13,7 @@ abstract class InputContoller implements Controller {
 
     public String getInputName() {
         renderEngine.drawMessage("Please Input a name.");
-        String input = getUserInput();
+        String input = getUserInput().strip();
 
         if (input.length() > 10) {
             renderEngine.drawMessage("Please keep your name under 10 characters!");

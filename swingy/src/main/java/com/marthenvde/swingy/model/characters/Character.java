@@ -1,16 +1,35 @@
 package com.marthenvde.swingy.model.characters;
 
 import java.util.Random;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class Character {
 
+    @NotNull(message = "Name should not be null")
+    @Size(min = 1, max = 10, message = "Name must be between 1 - 10 characters")
     private String name;
+
+    @Min(value = 0, message = "Attack must not be less than 0")
     private int attack;
+    
+    @Min(value = 0, message = "Defense must not be less than 0")
     private int defense;
+    
+    @Min(value = 0, message = "Hp must be greater than 0")
     private int hp;
+
+    @NotNull(message = "charClass must not be null")
     private String charClass;
+
+    @Min(value = 0, message = "Xp must not be less than 0")
     private int xp;
+    
+    @Min(value = 0, message = "x must not be less than 0")
     private int x;
+    
+    @Min(value = 0, message = "y must not be less than 0")
     private int y;
 
     public Character(String name, int attack, int defense, int hp, String charClass) {

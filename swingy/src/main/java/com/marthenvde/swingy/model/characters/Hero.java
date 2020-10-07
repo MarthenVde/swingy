@@ -1,7 +1,10 @@
 package com.marthenvde.swingy.model.characters;
 import com.marthenvde.swingy.model.artifact.*;
+import javax.validation.constraints.Min;
 
 public class Hero extends Character {
+
+    @Min(value = 0, message = "lvl must not be less 0")
     private int level;
     private Armor armor;
     private Weapon weapon;
