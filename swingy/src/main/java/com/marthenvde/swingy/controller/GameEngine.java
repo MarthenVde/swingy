@@ -108,7 +108,6 @@ public class GameEngine {
                         return;
                     }
                 }
-
             }
         }
         this.createNewHero();
@@ -129,7 +128,7 @@ public class GameEngine {
     }
 
     public void roundEnd() {
-        Storage.updateHero(this.player);
+        // Storage.updateHero(this.player);
         this.resetHp();
         this.renderer.drawContinueScreen();
 

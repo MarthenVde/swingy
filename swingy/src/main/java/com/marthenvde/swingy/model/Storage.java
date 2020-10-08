@@ -12,19 +12,32 @@ public class Storage {
     private static Gson gson = new Gson();
 
     public static void updateHero(Hero hero) {
-        int id = hero.getId();
+        String name = hero.getName();
         ArrayList<Hero> heroes = extractHeroes();
         boolean modified = false;
 
+        System.out.println("Old heroes on file");
+        for (Hero updatedHero : heroes) {
+            System.out.println(updatedHero.getName());
+        }
+        
+        
         if (heroes != null) {
             // Clear old file
             for (Hero tmpHero : heroes) {
-                if (id == tmpHero.getId()) {
+                if (name.equals(tmpHero.getName())) {
                     heroes.remove(tmpHero);
+                    System.out.println("Deleting old hero: " + tmpHero.getName());
+                    System.out.println("Adding hero: " + hero.getName());
                     heroes.add(hero);
                     modified = true;
                     break;
                 }
+            }
+
+            System.out.println("After deleting old hero");
+            for (Hero updatedHero : heroes) {
+                System.out.println(updatedHero.getName());
             }
 
             if (modified) {   

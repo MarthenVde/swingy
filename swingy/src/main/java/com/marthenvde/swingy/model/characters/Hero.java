@@ -11,8 +11,6 @@ public class Hero extends Character {
     private Armor armor;
     private Weapon weapon;
     private Helmet helmet;
-    private int id;
-    private static int idCounter = 0;
     
     public Hero(String name, int attack, int defense, int hp, String charClass, int baseHp) {
         super(name, attack, defense, hp, charClass);
@@ -20,26 +18,12 @@ public class Hero extends Character {
         this.helmet = null;
         this.weapon = null;
         this.baseHp = baseHp;
-        this.id = nextId();
-    }
-
-    
-    private static int nextId() {
-        return idCounter++;
     }
 
     public int getBaseHp() {
         return this.baseHp;
     }
     
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return this.id;
-    }
-
     public void setLevel(int level) {
         this.level = level;
     }

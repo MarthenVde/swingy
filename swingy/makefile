@@ -5,4 +5,4 @@ clean:
 re: clean all
 
 run:
-	mvn exec:java -Dexec.mainClass="com.marthenvde.swingy.Swingy" -Dexec.args="Gui"
+	mvn exec:java -Dexec.mainClass="com.marthenvde.swingy.Swingy" -Dexec.args="console"
